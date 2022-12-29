@@ -1,0 +1,18 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/BlckqPlugins/PiggyCustomEnchants
+build-by-default: true
+branches:
+  - master
+  - pmmp-4.0.0
+projects:
+  PiggyCustomEnchants:
+    path: ""
+    icon: "resources/PCE_Icon.png"
+    libs:
+      - src: DaPigGuy/FormAPI-4.0.0/libFormAPI
+        version: ^2.1.0
+      - src: Paroxity/Commando/Commando
+        version: ^3.0.0
+      - src: DaPigGuy/libPiggyUpdateChecker/libPiggyUpdateChecker
+        version: ^1.0.0
+    lint: false
+...
