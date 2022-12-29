@@ -17,6 +17,7 @@ class CustomEnchant extends Enchantment
     public string $name = "";
     public int $rarity = Rarity::RARE;
     public int $maxLevel = 5;
+    public int $minLevel = 1;
     private string $displayName;
     public string $description;
     public array $extraData;
@@ -112,6 +113,14 @@ class CustomEnchant extends Enchantment
     public function getPriority(): int
     {
         return 1;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinLevel(): int
+    {
+        return $this->minLevel;
     }
 
     public function canReact(): bool

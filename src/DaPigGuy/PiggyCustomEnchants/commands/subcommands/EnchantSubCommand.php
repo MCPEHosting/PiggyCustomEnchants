@@ -59,6 +59,12 @@ class EnchantSubCommand extends BaseSubCommand
                 $sender->sendMessage(TextFormat::RED . "The max level is " . $enchant->getMaxLevel() . ".");
                 return;
             }
+
+            if ($args["level"] < $enchant->getMinLevel()) {
+                $sender->sendMessage(TextFormat::RED . "The min level is " . $enchant->getMinLevel() . ".");
+                return;
+            }
+
             if ($item->getCount() > 1) {
                 $sender->sendMessage(TextFormat::RED . "You can only enchant one item at a time.");
                 return;
