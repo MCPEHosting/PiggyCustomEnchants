@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace DaPigGuy\PiggyCustomEnchants;
 
-use CortexPE\Commando\BaseCommand;
-use CortexPE\Commando\PacketHooker;
-use DaPigGuy\libPiggyUpdateChecker\libPiggyUpdateChecker;
 use DaPigGuy\PiggyCustomEnchants\blocks\PiggyObsidian;
 use DaPigGuy\PiggyCustomEnchants\commands\CustomEnchantsCommand;
 use DaPigGuy\PiggyCustomEnchants\enchants\CustomEnchant;
@@ -20,7 +17,7 @@ use DaPigGuy\PiggyCustomEnchants\entities\PiggyWitherSkull;
 use DaPigGuy\PiggyCustomEnchants\entities\PigProjectile;
 use DaPigGuy\PiggyCustomEnchants\tasks\CheckDisabledEnchantsTask;
 use DaPigGuy\PiggyCustomEnchants\tasks\TickEnchantmentsTask;
-use jojoe77777\FormAPI\Form;
+use DaPigGuy\PiggyCustomEnchants\libs\jojoe77777\FormAPI\Form;
 use pocketmine\block\BlockFactory;
 use pocketmine\color\Color;
 use pocketmine\data\bedrock\EffectIdMap;
@@ -43,9 +40,7 @@ class PiggyCustomEnchants extends PluginBase
     {
         foreach (
             [
-                "Commando" => BaseCommand::class,
                 "libformapi" => Form::class,
-                "libPiggyUpdateChecker" => libPiggyUpdateChecker::class
             ] as $virion => $class
         ) {
             if (!class_exists($class)) {
@@ -99,13 +94,11 @@ class PiggyCustomEnchants extends PluginBase
             if ($e instanceof CustomEnchant) CustomEnchantManager::unregisterEnchantment($e->getId());
         }
 
-        if (!PacketHooker::isRegistered()) PacketHooker::register($this);
-        $this->getServer()->getCommandMap()->register("piggycustomenchants", new CustomEnchantsCommand($this, "customenchants", "Manage Custom Enchants", ["ce", "customenchant"]));
+        $this->getServer()->getCommandMap()->register("piggycustomenchants", new CustomEnchantsCommand($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $this->getScheduler()->scheduleRepeatingTask(new TickEnchantmentsTask($this), 1);
 
-        libPiggyUpdateChecker::init($this);
         if ($this->getConfig()->get("remote-disable", true) === true) $this->getServer()->getAsyncPool()->submitTask(new CheckDisabledEnchantsTask());
     }
 

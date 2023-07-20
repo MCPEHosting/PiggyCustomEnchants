@@ -12,7 +12,7 @@ use DaPigGuy\PiggyCustomEnchants\entities\PiggyFireball;
 use DaPigGuy\PiggyCustomEnchants\entities\PiggyWitherSkull;
 use DaPigGuy\PiggyCustomEnchants\entities\PigProjectile;
 use InvalidArgumentException;
-use jojoe77777\FormAPI\SimpleForm;
+use DaPigGuy\PiggyCustomEnchants\libs\jojoe77777\FormAPI\SimpleForm;
 use pocketmine\entity\Location;
 use pocketmine\entity\projectile\Arrow;
 use pocketmine\entity\projectile\Projectile;

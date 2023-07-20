@@ -1,42 +1,52 @@
+---
 name: PiggyCustomEnchants
 main: DaPigGuy\PiggyCustomEnchants\PiggyCustomEnchants
-version: 3.0.2
+version: 3.0.8
 api: 4.2.0
-mcpe-protocol: [ 527 ]
+mcpe-protocol:
+- 554
+- 557
+- 560
+- 567
+- 575
+- 579
+- 582
+- 594
 load: POSTWORLD
 author: DaPigGuy
-website: "https://github.com/DaPigGuy/PiggyCustomEnchants/"
+website: https://github.com/DaPigGuy/PiggyCustomEnchants/
 permissions:
   piggycustomenchants:
     default: false
-    description: "Allows usage of all PiggyCustomEnchants features"
+    description: Allows usage of all PiggyCustomEnchants features
   piggycustomenchants.command:
     default: op
-    description: "Allow usage of all PiggyCustomEnchants commands"
+    description: Allow usage of all PiggyCustomEnchants commands
   piggycustomenchants.command.ce:
     default: op
-    description: "Allow usage of the /customenchant command"
+    description: Allow usage of the /customenchant command
   piggycustomenchants.command.ce.about:
     default: true
-    description: "Allow usage of the /customenchant about subcommand"
+    description: Allow usage of the /customenchant about subcommand
   piggycustomenchants.command.ce.enchant:
     default: op
-    description: "Allow usage of the /customenchant enchant subcommand"
+    description: Allow usage of the /customenchant enchant subcommand
   piggycustomenchants.command.ce.help:
     default: true
-    description: "Allow usage of the /customenchant help subcommand"
+    description: Allow usage of the /customenchant help subcommand
   piggycustomenchants.command.ce.info:
     default: true
-    description: "Allow usage of the /customenchant info subcommand"
+    description: Allow usage of the /customenchant info subcommand
   piggycustomenchants.command.ce.list:
     default: true
-    description: "Allow usage of the /customenchant list subcommand"
+    description: Allow usage of the /customenchant list subcommand
   piggycustomenchants.command.ce.nbt:
     default: true
-    description: "Allow usage of the /customenchant nbt subcommand"
+    description: Allow usage of the /customenchant nbt subcommand
   piggycustomenchants.command.ce.remove:
     default: op
-    description: "Allow usage of the /customenchant remove subcommand"
+    description: Allow usage of the /customenchant remove subcommand
   piggycustomenchants.overridecheck:
     default: false
-    description: "Allow overriding of custom enchant level limit and item restriction"
+    description: Allow overriding of custom enchant level limit and item restriction
+...
